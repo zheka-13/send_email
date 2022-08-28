@@ -66,7 +66,7 @@ echo "</div>\n";
 echo "	<div style='clear: both;'></div>\n";
 echo "</div>\n";
 
-echo "<form id='send_form' action='send_mail.php' method='get'>";
+echo "<form id='send_form' action='index.php' method='get'>";
 echo "<table width='100%' cellpadding='0' cellspacing='0'>\n";
 echo "	<tr>\n";
 echo "		<td width='30%' class='vncell' valign='top' nowrap='nowrap'>\n";

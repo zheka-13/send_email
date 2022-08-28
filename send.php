@@ -75,7 +75,7 @@ echo button::create(['type'=>'button',
     'id'=>'btn_email',
     'name'=>'btn_toggle',
     'onclick'=>"modal_open('modal-toggle','btn_email');"]);
-echo button::create(['type'=>'button','label'=>$text['button-back'],'icon'=>$_SESSION['theme']['button_icon_back'],'link'=>'send_mail.php']);
+echo button::create(['type'=>'button','label'=>$text['button-back'],'icon'=>$_SESSION['theme']['button_icon_back'],'link'=>'index.php']);
 echo "</div>\n";
 echo "	<div style='clear: both;'></div>\n";
 echo "</div>\n";
