@@ -1,6 +1,6 @@
 <?php
 
-$text['send_mail-heading']['en-us'] = "Send Mail";
+$text['send_mail-heading']['en-us'] = "Send Email";
 $text['send_mail-language']['en-us'] = "Language";
 $text['send_mail-category']['en-us'] = "Category";
 $text['send_mail-subcategory']['en-us'] = "Subcategory";
@@ -15,7 +15,7 @@ $text['send_mail-fullname']['en-us'] = "Directory Full Name";
 $text['send_mail-callgroup']['en-us'] = "Call group";
 $text['send_mail-description']['en-us'] = "Description";
 $text['send_mail-button']['en-us'] = "Send mail";
-$text['modal_title-confirmation']['en-us'] = "Send mail";
-$text['confirm-toggle']['en-us'] = "Do you really want to sent mail?";;
+$text['modal_title-confirmation']['en-us'] = "Send email";
+$text['confirm-toggle']['en-us'] = "Do you really want to sent email?";;
 ?>
 

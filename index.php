@@ -30,7 +30,7 @@ require_once "resources/require.php";
 require_once "resources/check_auth.php";
 
 //check permissions
-if (permission_exists('send_mail')) {
+if (permission_exists('send_email')) {
     //access granted
 }
 else {
