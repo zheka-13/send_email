@@ -1,2 +1,2 @@
-# send_mail
-Fusionpbx send mail app
+# send_email
+Fusionpbx send email app
