@@ -17,5 +17,7 @@ $text['send_mail-description']['en-us'] = "Description";
 $text['send_mail-button']['en-us'] = "Send mail";
 $text['modal_title-confirmation']['en-us'] = "Send email";
 $text['confirm-toggle']['en-us'] = "Do you really want to sent email?";;
+$text['send_mail-recipients']['en-us'] = "recipients";
+$text['send_mail-mail_sent']['en-us'] = "Mail sent to";
 ?>
 

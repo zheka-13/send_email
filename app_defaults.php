@@ -40,28 +40,14 @@ if ($domains_processed == 1) {
         Press 6 to change your password<br />
         <br />
         <br />
-        Phone - User Guide:<br />
-        ${provider_documentation_phone}<br />
-        <br />
-        Voicemail User Guide:<br />
-        ${provider_documentation_voicemail}<br />
-        <br />
-        <br />
         Your Voicemail will delivered to email: <br />
         ${email_address}
         <br /><br />
-        Voicemail will be deleted after delivery: <br />
-        ${voicemail_delete}<br /><br />
-        <br />
         <br />
         Please don\'t hesitate to email or call us with any questions or concerns.<br />
         <br />
         Best Regards,<br />
         <br />
-        ${provider_name}<br />
-        ${provider_phone}<br />
-        ${provider_website}<br />
-        ${provider_support_email}
         </body>
         </html>', 'html', 'true', 'welcome message');
 SQL;

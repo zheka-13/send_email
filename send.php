@@ -54,10 +54,28 @@ $document['title'] = $text['send_mail-heading'];
 require_once "resources/header.php";
 
 if (isset($_POST['template'])){
+    $color = 'positive';
+    $sent = 0;
+    if (is_array($_POST['extensions'])){
+        $extensions = [];
+        foreach($_POST['extensions'] as $val){
+            if ($val['checked'] == 'true'){
+                $extensions[] = $val['uuid'];
+            }
+        }
+        if (!empty($extensions)){
+            $users = $sendMailService->getExtensions();
+            foreach ($users as $user){
+                $sendMailService->sendEmail($user, $template);
+                $sent++;
+            }
+        }
+    }
+
     ?>
     <script>
     $(function(){
-        display_message('<?php echo "Mail sent to 0 recepients."; ?>', 'positive');
+        display_message('<?php echo $text['send_mail-mail_sent']." <strong>".$sent."</strong> ".$text['send_mail-recipients']; ?>', '<?php echo $color;?>');
     });
     </script>
 

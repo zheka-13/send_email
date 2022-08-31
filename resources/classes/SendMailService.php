@@ -5,6 +5,8 @@ class SendMailService
     private $db;
     private $form_data = [];
 
+
+
     public function __construct()
     {
         $this->db = new database;
@@ -73,6 +75,19 @@ class SendMailService
 
     }
 
+    public function sendEmail($extension, $template){
+        $query = "insert into v_email_queue (email_queue_uuid, domain_uuid, hostname, email_date, email_to, email_subject, email_body, email_status)
+            values (:email_queue_uuid, :domain_uuid, :hostname, now(), :email_to, :email_subject, :email_body, 'waiting')";
+       $this->db->execute($query, [
+           "email_queue_uuid" => uuid(),
+           "domain_uuid" => $_SESSION['domain_uuid'],
+           "hostname" => gethostname(),
+           "email_to" => $extension['voicemail_mail_to'],
+           'email_subject' => $template['template_subject'],
+           'email_body' => $this->parseText($template['template_body'], $extension)
+        ]);
+    }
+
     /**
      * @return array
      */
@@ -88,7 +103,6 @@ class SendMailService
         ]);
 
     }
-
 
     private function generateRequestData($form_data)
     {
@@ -113,6 +127,20 @@ class SendMailService
         }
         $this->form_data = $data;
         return $data;
+    }
+
+    /**
+     * @param $text
+     * @param $extension
+     * @return array|string|string[]
+     */
+    private function parseText($text, $extension)
+    {
+        $text = str_replace('${first_name}', $extension['directory_first_name'], $text);
+        $text = str_replace('${last_name}', $extension['directory_last_name'], $text);
+        $text = str_replace('${extension}', $extension['extension'], $text);
+        $text = str_replace('${voicemail_pin}', $extension['voicemail_password'], $text);
+        return  str_replace('${email_address}', $extension['voicemail_mail_to'], $text);
     }
 
 
