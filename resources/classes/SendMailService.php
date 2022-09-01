@@ -22,6 +22,7 @@ class SendMailService
         $data = [];
         $query = "select template_language, template_category, template_subcategory, template_type  from v_email_templates
                 where template_enabled='true' and (domain_uuid is null or domain_uuid = :domain_uuid) 
+                and template_language='en-us' and template_category='welcome'
                 group by template_language, template_category, template_subcategory, template_type";
         $rows = $this->db->select($query, [
             "domain_uuid" => $_SESSION['domain_uuid']
