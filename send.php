@@ -66,8 +66,10 @@ if (isset($_POST['template'])){
         if (!empty($extensions)){
             $users = $sendMailService->getExtensions();
             foreach ($users as $user){
-                $sendMailService->sendEmail($user, $template);
-                $sent++;
+                if (in_array($user['extension_uuid'], $extensions)) {
+                    $sendMailService->sendEmail($user, $template);
+                    $sent++;
+                }
             }
         }
     }
