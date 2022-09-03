@@ -52,7 +52,6 @@ catch (Exception $e){
 
 $document['title'] = $text['send_mail-heading'];
 require_once "resources/header.php";
-
 if (isset($_POST['template'])){
     $color = 'positive';
     $sent = 0;
@@ -110,7 +109,6 @@ echo "<strong>".$text['send_mail-subject'].":</strong> ".$template['template_sub
 echo "</div>";
 
 $extensions = $sendMailService->getExtensions();
-
 echo "<form id='form_list' method='post'>";
 echo "<input type='hidden' name='action' id='action' value=''>";
 echo "<input type='hidden' name='template' value='".$_GET['uuid']."'>";
@@ -125,11 +123,11 @@ echo "<tr class='list-header'>";
     echo "<th nowrap='nowrap'>".$text['send_mail-callgroup']."</th>";
     echo "<th nowrap='nowrap'>".$text['send_mail-description']."</th>";
 echo "</tr>";
-foreach ($extensions as $extension){
+foreach ($extensions as $key => $extension){
     echo "<tr class='list-row'>";
     echo "<td class='checkbox'>";
-        echo "<input type='checkbox' name='extensions[0][checked]' id='checkbox_0' value='true' onclick='if (!this.checked) { document.getElementById('checkbox_all').checked = false; }'>";
-        echo "<input type='hidden' name='extensions[0][uuid]' value='".$extension['extension_uuid']."'>";
+        echo "<input type='checkbox' name='extensions[".$key."][checked]' id='checkbox_".$key."' value='true' onclick='if (!this.checked) { document.getElementById('checkbox_all').checked = false; }'>";
+        echo "<input type='hidden' name='extensions[".$key."][uuid]' value='".$extension['extension_uuid']."'>";
     echo "</td>";
     echo "<td>".$extension['extension']."</td>";
     echo "<td>".$extension['voicemail_mail_to']."</td>";
